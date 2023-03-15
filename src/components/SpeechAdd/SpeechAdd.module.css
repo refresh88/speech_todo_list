@@ -1,0 +1,14 @@
+.mic {
+  cursor: pointer;
+  background-color: var(--color-white);
+  font-size: 2rem;
+  border-radius: 100%;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  transition: all 150ms ease-out;
+  display: flex;    
+}
+
+.mic:hover {
+  transform: scale(1.2)
+}

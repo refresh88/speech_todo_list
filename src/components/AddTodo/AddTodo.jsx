@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './AddTodo.module.css';
+import SpeechAdd from '../SpeechAdd/SpeechAdd';
 
 export default function AddTodo({ onAdd }) {
   const [text, setText] = useState('');
   const handleChange = (e) => {
     setText(e.target.value);
+  };
+  const handleSpeechChange = (transcript) => {
+    setText(transcript);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +19,7 @@ export default function AddTodo({ onAdd }) {
     onAdd({ id: uuidv4(), text, status: 'active' });
     setText('');
   };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
@@ -25,6 +30,7 @@ export default function AddTodo({ onAdd }) {
         onChange={handleChange}
       />
       <button className={styles.button}>Add</button>
+      <SpeechAdd onSpeechChange={handleSpeechChange} />
     </form>
   );
 }
